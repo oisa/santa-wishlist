@@ -17,15 +17,16 @@ const Wishlist = () => {
      });
   }
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Thanks ${ wish.name }! Santa has your wish! 🎅`);
   }
 
   return (
     <div>
       <h2>Tell Santa what you want for Christmas!</h2>
 
-    <form>
+    <form onSubmit={ handleSubmit }>
       <label>You name:
         <input id="name" name="name" type="text" placeholder="Sven" required value={ wish.name } onChange={ handleChange }></input>
       </label>
@@ -41,7 +42,7 @@ const Wishlist = () => {
           <option value="5">5</option>
         </select>
       </label>
-      <button onSubmit={ handleSubmit }>Send to Santa!</button>
+      <button>Send to Santa!</button>
     </form>
     </div>
   )
